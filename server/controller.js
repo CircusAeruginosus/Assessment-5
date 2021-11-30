@@ -250,7 +250,8 @@ module.exports = {
     let rating = req.body.rating;
     let countryId = req.body.countryId;
     sequelize
-      .query(`INSERT INTO cities values (name, rating, country_id)`)
+      .query(`INSERT INTO cities (name, rating, country_id)
+      VALUES ("Geneva", 5, 1)`)
       .then((dbRes) => res.status(200).send(dbRes[0]))
       .catch((err) => console.log(err));
   },
